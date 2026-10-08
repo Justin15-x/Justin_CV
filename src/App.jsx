@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Education from './components/Education';
+import Map from './components/map';
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
       <Navbar />
 
       {/* 2. Contenedor principal del CV */}
-      <main className="max-w-4xl mx-auto p-8 pt-0">
+      <main className="max-w-4xl mx-auto p-8 pt-0" >
         <Header />
         <Skills />
         <Projects />
         <Education />
+        <Map />
       </main>
     </div>
   );
