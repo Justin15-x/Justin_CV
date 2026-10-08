@@ -1,0 +1,58 @@
+# Nombre de la automatización
+name: Deploy Vite + React App to GitHub Pages
+
+# Define cuándo se ejecutará (cada vez que hagas 'git push' a la rama main)
+on:
+  push:
+    branches: ["main"]
+
+  # Permite ejecutar este flujo manualmente desde la pestaña "Actions" de GitHub
+  workflow_dispatch:
+
+# Configura los permisos mínimos necesarios para compilar y desplegar en Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite cancelar compilaciones en progreso si haces un nuevo push rápidamente
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Primer trabajo: Descargar código y compilar la app de React
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (Descargar el repositorio)
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (Configurar Node)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm' # Optimiza el tiempo guardando en caché tus paquetes
+
+      - name: Install dependencies (Instalar paquetes)
+        run: npm ci
+
+      - name: Build (Compilar el proyecto React)
+        run: npm run build
+
+      - name: Upload artifact (Preparar la carpeta dist para Pages)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # Vite genera por defecto la carpeta 'dist'
+
+  # Segundo trabajo: Tomar la compilación anterior y publicarla en internet
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages (Desplegar)
+        id: deployment
+        uses: actions/deploy-pages@v4
