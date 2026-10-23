@@ -8,13 +8,12 @@ const SECCIONES = [
   { id: 'ubicacion', label: 'Ubicación' },
 ];
 
-// ⚠️ Cambia estos datos por los tuyos
 const PERFIL = {
   iniciales: 'JC',
-  nombre: 'Mi Portafolio',
+  nombre: 'Curriculum Web',
   github: 'https://github.com/tu-usuario',
-  linkedin: 'https://linkedin.com/in/tu-usuario',
-  correo: 'mailto:tu@correo.com',
+  linkedin: 'https://www.linkedin.com/in/justin-camarillo-0709b1363',
+  correo: 'justincamarillo93@gmail.com',
 };
 
 const ALTURA_NAVBAR = 64;
@@ -84,14 +83,14 @@ function Navbar() {
 
   const enlaceBase =
     'relative h-full px-4 flex items-center gap-2 text-sm font-medium transition-colors ' +
-    'focus:outline-none focus-visible:bg-purple-800';
+    'focus:outline-none focus-visible:bg-cyan-800';
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-purple-950 text-white shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-cyan-950 text-white shadow-lg">
         {/* Barra de progreso de scroll */}
         <div
-          className="absolute bottom-0 left-0 h-0.5 bg-fuchsia-400 transition-[width] duration-100"
+          className="absolute bottom-0 left-0 h-0.5 bg-blue-300 transition-[width] duration-100"
           style={{ width: `${progreso}%` }}
           aria-hidden="true"
         />
@@ -101,11 +100,11 @@ function Navbar() {
           <button
             onClick={() => irA('inicio')}
             className="flex items-center gap-3 mr-6 lg:mr-10 focus:outline-none
-                       focus-visible:ring-2 focus-visible:ring-purple-300 rounded-lg"
+                       focus-visible:ring-2 focus-visible:ring-cyan-300 rounded-lg"
             aria-label="Ir al inicio"
           >
             <div
-              className="w-10 h-10 rounded-full bg-purple-600 flex items-center
+              className="w-10 h-10 rounded-full bg-cyan-600 flex items-center
                          justify-center font-bold text-lg"
             >
               {PERFIL.iniciales}
@@ -113,7 +112,7 @@ function Navbar() {
 
             <div className="text-left leading-tight">
               <span className="block font-semibold tracking-wide">{PERFIL.nombre}</span>
-              <span className="hidden sm:flex items-center gap-1.5 text-xs text-purple-300">
+              <span className="hidden sm:flex items-center gap-1.5 text-xs text-cyan-300">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 Disponible para trabajar
               </span>
@@ -135,14 +134,14 @@ function Navbar() {
                     aria-current={esActiva ? 'true' : undefined}
                     className={`${enlaceBase} ${
                       esActiva
-                        ? 'text-white bg-purple-900'
-                        : 'text-purple-200 hover:bg-purple-900 hover:text-white'
+                        ? 'text-white bg-cyan-900'
+                        : 'text-cyan-200 hover:bg-cyan-900 hover:text-white'
                     }`}
                   >
                     {label}
                     {/* Indicador de sección activa */}
                     {esActiva && (
-                      <span className="absolute left-3 right-3 bottom-0 h-0.5 rounded-full bg-fuchsia-400" />
+                      <span className="absolute left-3 right-3 bottom-0 h-0.5 rounded-full bg-blue-300" />
                     )}
                   </a>
                 </li>
@@ -152,17 +151,17 @@ function Navbar() {
 
           {/* ACCIONES (derecha) */}
           <div className="ml-auto flex items-center gap-1 sm:gap-2">
-            <a
+            {/* <a
               href={PERFIL.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
               className="hidden sm:flex w-10 h-10 rounded-full items-center justify-center
-                         text-purple-200 hover:bg-purple-800 hover:text-white transition-colors
-                         focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-300"
+                         text-cyan-200 hover:bg-cyan-800 hover:text-white transition-colors
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
             >
               <IconoGitHub />
-            </a>
+            </a>  */}
 
             <a
               href={PERFIL.linkedin}
@@ -170,16 +169,16 @@ function Navbar() {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="hidden sm:flex w-10 h-10 rounded-full items-center justify-center
-                         text-purple-200 hover:bg-purple-800 hover:text-white transition-colors
-                         focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-300"
+                         text-white hover:bg-cyan-800 hover:text-white transition-colors
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
             >
               <IconoLinkedIn />
             </a>
 
             <a
               href={PERFIL.correo}
-              className="hidden sm:inline-flex ml-2 px-4 py-2 rounded-full bg-fuchsia-500
-                         hover:bg-fuchsia-400 text-purple-950 text-sm font-semibold
+              className="hidden sm:inline-flex ml-2 px-4 py-2 rounded-full bg-white
+                         hover:bg-black text-cyan-950 text-sm font-semibold
                          transition-colors focus:outline-none
                          focus-visible:ring-2 focus-visible:ring-white"
             >
@@ -192,8 +191,8 @@ function Navbar() {
               aria-label={menuAbierto ? 'Cerrar menú' : 'Abrir menú'}
               aria-expanded={menuAbierto}
               className="md:hidden w-10 h-10 rounded-full flex items-center justify-center
-                         hover:bg-purple-800 transition-colors focus:outline-none
-                         focus-visible:ring-2 focus-visible:ring-purple-300"
+                         hover:bg-cyan-800 transition-colors focus:outline-none
+                         focus-visible:ring-2 focus-visible:ring-cyan-300"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -216,7 +215,7 @@ function Navbar() {
 
         {/* MENÚ MÓVIL */}
         {menuAbierto && (
-          <div className="md:hidden bg-purple-900 border-t border-purple-800">
+          <div className="md:hidden bg-cyan-900 border-t border-cyan-800">
             <ul className="max-w-7xl mx-auto px-4 py-2">
               {SECCIONES.map(({ id, label }) => (
                 <li key={id}>
@@ -228,8 +227,8 @@ function Navbar() {
                     }}
                     className={`block px-3 py-3 rounded-lg text-sm font-medium ${
                       activa === id
-                        ? 'bg-purple-800 text-white'
-                        : 'text-purple-200 hover:bg-purple-800 hover:text-white'
+                        ? 'bg-cyan-800- text-white'
+                        : 'text-white hover:bg-cyan-800 hover:text-white'
                     }`}
                   >
                     {label}
@@ -241,17 +240,17 @@ function Navbar() {
             <div className="max-w-7xl mx-auto px-4 pb-4 flex items-center gap-2">
               <a
                 href={PERFIL.correo}
-                className="flex-1 text-center px-4 py-2.5 rounded-full bg-fuchsia-500
-                           text-purple-950 text-sm font-semibold"
+                className="flex-1 text-center px-4 py-2.5 rounded-full bg-blue-500
+                           text-cyan-800 text-sm font-semibold"
               >
                 Contáctame
               </a>
               <a
-                href={PERFIL.github}
+                href={`mailto:${PERFIL.correo}?subject=Oportunidad%20Laboral%20-%20CV&body=Hola%20Justin,%20me%20gustó%20tu%20perfil%20y%20me%20gustaría...`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center"
+                className="w-10 h-10 rounded-full bg-cyan-800 flex items-center justify-center"
               >
                 <IconoGitHub />
               </a>
@@ -260,7 +259,7 @@ function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center"
+                className="w-10 h-10 rounded-full bg-cyan-800 flex items-center justify-center"
               >
                 <IconoLinkedIn />
               </a>
