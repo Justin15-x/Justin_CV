@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Education from './components/Education';
-import Map from './components/map';
+import Map from './components/Map';
 
 function App() {
   return (
