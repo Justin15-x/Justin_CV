@@ -19,13 +19,13 @@ function Skills() {
             <h3 className="font-bold text-green-600 border-b pb-2 mb-3">Backend y Base de Datos</h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
               <li>Node.js y Express</li>
-              <li>PHP y typescript</li>
+              <li>PHP, Java, typescript, etc.</li>
               <li>PostgreSQL, MySQL, MariaDB</li>
               <li>MongoDB y SQL Server</li>
               <li>Supabase</li>
               <li>Uso de api</li>
               <li>Implementacion de servicios de nube</li>
-
+              <li>Tambien puedo adaptarme a otros lenguajes de ser necesario</li>
             </ul>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-sm border">
